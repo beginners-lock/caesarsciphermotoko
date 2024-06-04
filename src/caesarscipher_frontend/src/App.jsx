@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LoadingSpinner from './Spinner';
 import { caesarscipher_backend } from 'declarations/caesarscipher_backend';
-import './App.css';
+//import './App.css';
 
 function App() {
   const [encryptedmsg, setEncryptedmsg] = useState('');
@@ -34,8 +34,8 @@ function App() {
   }
 
   return (
-    <div className="w-full h-full bg-no-repeat bg-cover" style={{ backgroundImage: "url('bg.jpeg')" }}>
-      <div className="w-full h-full flex flex-col items-center justify-start pt-8" style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
+    <div className="w-full h-[100vh] bg-repeat bg-cover box-border" style={{ border:'5px green solid'}}>
+      <div className="w-full h-[100vh] flex flex-col items-center justify-start pt-8 px-5 box-border" style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
         <div className="text-6xl font-bold text-white ">Caesar's Cipher</div>
 
         <div className='mt-6 italic text-white font-semibold text-lg flex flex-col items-center jsutify-center'>
@@ -45,13 +45,13 @@ function App() {
             <input id="encshift" className='px-1 py-1 ml-4 w-20 bg-transparent active:outline-none focus:outline-none' type="number" style={{border:'1px white solid'}} defaultValue={1} min={1}/>
           </div>  
         </div>
-        <div className='w-[1000px] mt-4 flex flex-row items-center justify-between'>
+        <div className='w-full lg:w-[1000px] mt-4 flex flex-col lg:flex-row items-center justify-between'>
           <div className='w-[400px]'>
             <textarea id='encryptiontextarea' placeholder='Write your message here' className='text-sm p-2 w-[400px] h-[150px] bg-transparent text-white active:outline-none focus:outline-none resize-none' style={{ border: '2px white solid' }}>
 
             </textarea>
           </div>
-          <div className='w-[100px] font-semibold flex flex-row items-center justify-center py-2 px-4 cursor-pointer rounded-md shadow-lg bg-amber-700 text-white text-sm' onClick={()=>{ encrypt(); }}>
+          <div className='w-[100px] font-semibold flex flex-row items-center justify-center py-2 px-4 cursor-pointer rounded-md shadow-lg bg-amber-700 text-white text-sm my-4 lg:my-0' onClick={()=>{ encrypt(); }}>
             <div style={{display:encryptionloading?'none':'flex'}}>Encrypt</div>
             <LoadingSpinner
               borderColor={'white'}
@@ -72,13 +72,13 @@ function App() {
             <input id="decshift" className='px-1 py-1 ml-4 w-20 bg-transparent active:outline-none focus:outline-none' type="number" style={{border:'1px white solid'}} defaultValue={1} min={1}/>
           </div>  
         </div>
-        <div className='w-[1000px] mt-4 flex flex-row items-center justify-between'>
+        <div className='w-full lg:w-[1000px] mt-4 flex flex-col lg:flex-row items-center justify-between'>
           <div className='w-[400px]'>
             <textarea id='decryptiontextarea' placeholder='Write your encrypted message here' className='text-sm p-2 w-[400px] h-[150px] bg-transparent text-white active:outline-none focus:outline-none resize-none' style={{ border: '2px white solid' }}>
 
             </textarea>
           </div>
-          <div className='w-[100px] font-semibold flex flex-row items-center justify-center py-2 px-4 cursor-pointer rounded-md shadow-lg bg-amber-700 text-white text-sm' onClick={()=>{ decrypt(); }}>
+          <div className='w-[100px] font-semibold flex flex-row items-center justify-center py-2 px-4 cursor-pointer rounded-md shadow-lg bg-amber-700 text-white text-sm my-4 lg:my-0' onClick={()=>{ decrypt(); }}>
             <div style={{display:decryptionloading?'none':'flex'}}>Decrypt</div>
             <LoadingSpinner
               borderColor={'white'}
